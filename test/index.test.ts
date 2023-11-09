@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { renderUnicode, renderUnicodeCompact } from '../src/render'
 import { encode, renderSVG } from '../src'
+import { renderBase64 } from '../src/base64'
 
 describe('should', () => {
   it('generate', () => {
@@ -135,7 +136,15 @@ describe('should', () => {
 
   it('render-svg', () => {
     const svg = renderSVG('qrcode')
+    // console.log(svg)
 
     expect(svg).toMatchFileSnapshot('./output/out1.svg')
+  })
+  it('render-base64', () => {
+    const base64 = renderBase64('qrcode', {
+      pixelSize: 5,
+    })
+
+    // expect(svg).toMatchFileSnapshot('./output/out1.svg')
   })
 })
