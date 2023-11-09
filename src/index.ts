@@ -9,5 +9,8 @@ export {
 export {
   renderSVG,
 } from './svg'
+export {
+  renderBase64,
+} from './base64'
 
 export * from './types'
