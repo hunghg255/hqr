@@ -119,3 +119,10 @@ export interface QrCodeGenerateSvgOptions extends QrCodeGenerateOptions {
    */
   blackColor?: string
 }
+
+export interface QrCodeGenerateImageOptions extends QrCodeGenerateOptions {
+  width?: number
+  height?: number
+  margin?: number
+  scale?: number
+}

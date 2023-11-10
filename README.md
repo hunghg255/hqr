@@ -32,6 +32,7 @@ import {
   renderSVG,
   renderUnicode,
   renderUnicodeCompact,
+  renderBase64
 } from 'hqr'
 
 const svg = renderSVG('Hello, World!')
@@ -109,6 +110,16 @@ Render QR Code to SVG string.
 import { renderSVG } from 'hqr'
 
 const string = renderSVG(text, options)
+```
+
+### `renderBase64`
+
+Render QR Code to SVG string.
+
+```ts
+import { renderBase64 } from 'hqr'
+
+const string = renderBase64(text, options)
 ```
 
 ## Credits

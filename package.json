@@ -47,6 +47,7 @@
     "@antfu/ni": "^0.21.5",
     "@antfu/utils": "^0.7.6",
     "@types/node": "^20.5.0",
+    "@types/pngjs": "^6.0.4",
     "bumpp": "^9.1.1",
     "eslint": "^8.47.0",
     "esno": "^0.17.0",
@@ -65,5 +66,8 @@
   },
   "lint-staged": {
     "*": "eslint --fix"
+  },
+  "dependencies": {
+    "pngjs": "^7.0.0"
   }
 }
