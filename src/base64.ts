@@ -42,19 +42,12 @@ function getOptions(options: any) {
   if (!options.color)
     options.color = {}
 
-  const margin = typeof options.margin === 'undefined'
-    || options.margin === null
-    || options.margin < 0
-    ? 1
-    : options.margin
-
   const width = options.width && options.width >= 21 ? options.width : undefined
   const scale = options.scale || 4
 
   return {
     width,
     scale: width ? 4 : scale,
-    margin,
     color: {
       dark: hex2rgba('#000000ff'),
       light: hex2rgba('#ffffffff'),
@@ -70,15 +63,14 @@ const getScale = function getScale(qrSize: any, opts: any) {
 
 function getImageWidth(qrSize: any, opts: any) {
   const scale = getScale(qrSize, opts)
-  return Math.floor((qrSize + opts.margin * 2) * scale)
+  return Math.floor((qrSize + 2) * scale)
 }
 
 const qrToImageData = function qrToImageData(imgData: any, qrData: any, opts: any) {
   const data = qrData.data
 
   const scale = getScale(qrData.size, opts)
-  const symbolSize = Math.floor((qrData.size + opts.margin * 2) * scale)
-  const scaledMargin = opts.margin * scale
+  const symbolSize = Math.floor((qrData.size + 2) * scale)
   const palette = [opts.color.light, opts.color.dark]
 
   for (let i = 0; i < symbolSize; i++) {
@@ -86,10 +78,10 @@ const qrToImageData = function qrToImageData(imgData: any, qrData: any, opts: an
       let posDst = (i * symbolSize + j) * 4
       let pxColor = opts.color.light
 
-      if (i >= scaledMargin && j >= scaledMargin
-          && i < symbolSize - scaledMargin && j < symbolSize - scaledMargin) {
-        const iSrc = Math.floor((i - scaledMargin) / scale)
-        const jSrc = Math.floor((j - scaledMargin) / scale)
+      if (i >= scale && j >= scale
+          && i < symbolSize - scale && j < symbolSize - scale) {
+        const iSrc = Math.floor((i - scale) / scale)
+        const jSrc = Math.floor((j - scale) / scale)
 
         pxColor = palette[data[iSrc * qrData.size + jSrc] ? 1 : 0]
       }
@@ -133,8 +125,8 @@ function renderToBuffer(qrData: any, opts: any, cb: any) {
 export async function renderBase64(
   data: QrCodeGenerateData,
   options: QrCodeGenerateImageOptions = {},
-) {
-  const result = encode(data)
+): Promise<string> {
+  const result = encode(data, options)
 
   const opts = getOptions(options)
 

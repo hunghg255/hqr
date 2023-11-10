@@ -123,6 +123,5 @@ export interface QrCodeGenerateSvgOptions extends QrCodeGenerateOptions {
 export interface QrCodeGenerateImageOptions extends QrCodeGenerateOptions {
   width?: number
   height?: number
-  margin?: number
   scale?: number
 }
