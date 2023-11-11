@@ -4,6 +4,7 @@ import type { Plugin } from 'rollup'
 export default defineBuildConfig({
   entries: [
     'src/index',
+    'src/cli',
   ],
   declaration: true,
   clean: true,

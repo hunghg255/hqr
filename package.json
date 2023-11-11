@@ -29,6 +29,9 @@
       ]
     }
   },
+  "bin": {
+    "hqr": "./dist/cli.mjs"
+  },
   "files": [
     "dist"
   ],
@@ -40,7 +43,8 @@
     "release": "bumpp && npm publish",
     "play": "esno play/run.ts",
     "test": "vitest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "cli": "unbuild --stub && node bin/cli.mjs --text 'https://hung.thedev.id'"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.40.2",
@@ -68,6 +72,9 @@
     "*": "eslint --fix"
   },
   "dependencies": {
-    "pngjs": "^7.0.0"
+    "boxen": "^7.1.1",
+    "kolorist": "^1.8.0",
+    "pngjs": "^7.0.0",
+    "unprompts": "^1.0.11"
   }
 }

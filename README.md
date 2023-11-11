@@ -23,6 +23,11 @@ yarn add hqr
 pnpm add hqr
 ```
 
+## Usage CLI
+```bash
+npx hqr --text "Hello, World!"
+```
+
 ## Usage
 
 ```ts
