@@ -30,7 +30,7 @@
     }
   },
   "bin": {
-    "hqr": "./dist/cli.mjs"
+    "hqr": "./bin/hqr.mjs"
   },
   "files": [
     "dist",
