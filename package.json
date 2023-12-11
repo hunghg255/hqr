@@ -1,7 +1,7 @@
 {
   "name": "hqr",
   "type": "module",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Generate QR Code universally, in any runtime, to ANSI, Unicode or SVG.",
   "license": "MIT",
   "homepage": "https://github.com/hunghg255/hqr#readme",
@@ -40,7 +40,6 @@
     "build": "unbuild",
     "dev": "unbuild --stub",
     "lint": "eslint .",
-    "prepublishOnly": "nr build",
     "release": "bumpp && npm publish",
     "play": "esno play/run.ts",
     "test": "vitest",

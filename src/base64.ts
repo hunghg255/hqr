@@ -36,11 +36,9 @@ function hex2rgba(hex: any) {
   }
 }
 
-function getOptions(options: any) {
+function getOptions(options: QrCodeGenerateImageOptions) {
   if (!options)
     options = {}
-  if (!options.color)
-    options.color = {}
 
   const width = options.width && options.width >= 21 ? options.width : undefined
   const scale = options.scale || 4
@@ -49,8 +47,8 @@ function getOptions(options: any) {
     width,
     scale: width ? 4 : scale,
     color: {
-      dark: hex2rgba('#000000ff'),
-      light: hex2rgba('#ffffffff'),
+      dark: hex2rgba(options?.blackColor ?? '#000'),
+      light: hex2rgba('#fff'),
     },
   }
 }

@@ -124,4 +124,10 @@ export interface QrCodeGenerateImageOptions extends QrCodeGenerateOptions {
   width?: number
   height?: number
   scale?: number
+  /**
+   * Hex color of the white module
+   *
+   * @default '#000'
+   */
+  blackColor?: string
 }
