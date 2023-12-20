@@ -10,6 +10,11 @@ export default defineBuildConfig({
   clean: true,
   rollup: {
     emitCJS: true,
+    cjsBridge: true,
+    inlineDependencies: true,
+    esbuild: {
+      minify: false,
+    },
   },
   hooks: {
     'rollup:options': (_, options) => {

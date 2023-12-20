@@ -1,14 +1,17 @@
 {
   "compilerOptions": {
-    "target": "es2018",
+    "target": "esnext",
+    "lib": ["esnext", "DOM"],
+    "rootDir": ".",
     "module": "esnext",
-    "lib": ["esnext"],
-    "moduleResolution": "node",
-    "esModuleInterop": true,
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "allowJs": true,
     "strict": true,
     "strictNullChecks": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true
+    "preserveValueImports": false,
+    "esModuleInterop": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true
   }
 }
